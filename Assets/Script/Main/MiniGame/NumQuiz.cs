@@ -10,7 +10,7 @@ public class NumQuiz : MonoBehaviour, MiniGame
     public Text num_3;
 
     public GameObject game;
-
+    public GameObject gamemanager;
 
     void Start()
     {
@@ -26,6 +26,8 @@ public class NumQuiz : MonoBehaviour, MiniGame
             {
                 Quiz_reset();
                 game.SetActive(false);
+                gamemanager.GetComponent<GameManager>().point += 1;
+                gamemanager.GetComponent<GameManager>().RPC_send_point();
             }
         }
     }

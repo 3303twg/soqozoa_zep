@@ -42,6 +42,10 @@ MonoBehaviour:
   - RPC_spawn_player
   - spawn_player
   - RPC_Start_flappy
+  - send_point
+  - RPC_change_nick_name
+  - change_nick_name
+  - sync_nick_name
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

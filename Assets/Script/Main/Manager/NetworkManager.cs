@@ -7,16 +7,16 @@ using UnityEngine;
 public class NetworkManager : MonoBehaviour
 {
 
-    GameObject player_prefab = Resources.Load<GameObject>("Main/Prefabs/Player");
 
 
-    PhotonView photonView;
+    PhotonView photon_view;
 
-
+    public GameObject player;
 
     private void Awake()
     {
-        photonView = GetComponent<PhotonView>();
+        photon_view = GetComponent<PhotonView>();
+        
     }
     void Start()
     {
@@ -27,5 +27,16 @@ public class NetworkManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    [PunRPC]
+    void sync_nick_name()
+    {
+        player.GetComponent<PlayerController>().RPC_change_nick_name();
+    }
+
+    public void RPC_sync_nick_name()
+    {
+        photon_view.RPC("sync_nick_name", RpcTarget.All);
     }
 }
