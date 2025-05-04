@@ -696,9 +696,10 @@ GameObject:
   - component: {fileID: 173581713122408010}
   - component: {fileID: 6645323220998632629}
   - component: {fileID: 5621237326043363522}
+  - component: {fileID: -7457667884576449452}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -808,10 +809,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_info: {fileID: 0}
   networkmanager: {fileID: 0}
+  skinmanager: {fileID: 0}
   camera: {fileID: 0}
+  chatmanager: {fileID: 0}
   speed: 5
   name: {fileID: 8712273274149156943}
   nick_name: 
+  photon_view: {fileID: 0}
+  isGame: 0
+  isChat: 0
   animator: {fileID: 0}
 --- !u!114 &4819696028779120289
 MonoBehaviour:
@@ -947,3 +953,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-7457667884576449452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953709474578472698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f9e14862ff31a34c95209f10e890602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

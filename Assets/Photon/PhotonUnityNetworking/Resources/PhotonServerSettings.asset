@@ -46,6 +46,18 @@ MonoBehaviour:
   - RPC_change_nick_name
   - change_nick_name
   - sync_nick_name
+  - Change_skin
+  - Chang_num
+  - Refresh_skin
+  - Change_num
+  - RPC_Refresh_skin
+  - Get_SkinManager
+  - RPC_Get_SkinManager
+  - RPC_sync_SkinManager
+  - RPC_sync_player
+  - RPC_Write_text
+  - Destroy_chat_ballon
+  - Write_text
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

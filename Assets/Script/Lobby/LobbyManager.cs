@@ -21,7 +21,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.AutomaticallySyncScene = false;
         PhotonNetwork.ConnectUsingSettings();
         
     }
@@ -88,13 +88,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("룸에 입장 완료");
 
-        //문자열 나중에 변수로 넣어주기 int 값으로 해두되긴함
-        //SceneManager.LoadScene("Main");
 
-        
         PhotonNetwork.LoadLevel("Main");
-
-        //
     }
 
 
@@ -102,11 +97,16 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     //버튼으로 호출할 함수
     public void JoinRoom()
     {
+        
         string txt = text;
         player_info.GetComponent<PlayerInfo>().nick_name = txt;
-
+        
         //방이 하나밖에 없을예정이라 랜덤으로하긴했음
         //직접 선택하려면 이름 입력해야함
         PhotonNetwork.JoinRandomRoom();
+
+        
+
+
     }
 }

@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        people_num.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + "Έν";
-        point.text = gamemanager_script.point.ToString();
+        //people_num.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString() + "Έν";
+        //point.text = gamemanager_script.point.ToString();
     }
 }

@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class GameRoomManager : MonoBehaviourPun
 {
+    public GameObject player_list;
     public GameObject flappy;
     public Text slot_1;
     public Text slot_2;
@@ -21,6 +23,9 @@ public class GameRoomManager : MonoBehaviourPun
     private void Awake()
     {
         photon_view = GetComponent<PhotonView>();
+
+        
+        player_list = GameObject.Find("PlayerList");
     }
     void Start()
     {
@@ -98,7 +103,17 @@ public class GameRoomManager : MonoBehaviourPun
                 SceneManager.LoadScene("Flappy");
             }
         }
-        
+    }
 
+    public void test_game()
+    {
+
+        foreach (Transform child in player_list.transform)
+        {
+            child.gameObject.GetComponent<PlayerController>().isGame = true;
+            child.gameObject.SetActive(false);
+        }
+
+        SceneManager.LoadScene("Flappy");
     }
 }

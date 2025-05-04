@@ -7,6 +7,8 @@ TagManager:
   - Trigger
   - Bullet
   - NPC
+  - Rock
+  - wall
   layers:
   - Default
   - TransparentFX

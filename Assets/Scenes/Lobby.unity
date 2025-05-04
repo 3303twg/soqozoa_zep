@@ -202,6 +202,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104340854}
   m_CullTransparentMesh: 1
+--- !u!1 &505795380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 505795382}
+  - component: {fileID: 505795381}
+  m_Layer: 0
+  m_Name: PlayerList
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &505795381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505795380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f9e14862ff31a34c95209f10e890602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &505795382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505795380}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &514203084
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 662549179}
   - component: {fileID: 662549178}
+  - component: {fileID: 662549180}
   m_Layer: 0
   m_Name: LobbyManager
   m_TagString: Untagged
@@ -344,6 +389,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &662549180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662549177}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f9e14862ff31a34c95209f10e890602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &677417261
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nick_name: 
+  skin_index: 0
 --- !u!1 &952236587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,3 +1144,4 @@ SceneRoots:
   - {fileID: 1276809077}
   - {fileID: 662549179}
   - {fileID: 903239682}
+  - {fileID: 505795382}
