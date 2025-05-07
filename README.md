@@ -16,35 +16,36 @@
 
 각 스크립트는 프로젝트 내에서 다음과 같은 역할을 담당합니다
 
-📁 LobbyManager
+### 📁 LobbyManager  
 유니티 포톤에서의 로비를 구현하기 위한 스크립트입니다.
 
-👤 PlayerInfo
+### 👤 PlayerInfo  
 씬 전환 시 플레이어의 데이터를 보관하기 위한 스크립트입니다.
 
-🕹️ PlayerController
+### 🕹️ PlayerController  
 플레이어의 이동 및 조작을 담당하는 스크립트입니다.
 
-🎯 SensorController
+### 🎯 SensorController  
 플레이어가 주변과 상호작용할 수 있도록 감지 기능을 제공하는 스크립트입니다.
 
-🤖 NPCController
+### 🤖 NPCController  
 NPC와의 상호작용 및 동작을 제어하는 스크립트입니다.
 
-🌐 NetworkManager
+### 🌐 NetworkManager  
 클라이언트들 간의 상태를 동기화해주는 핵심 네트워크 스크립트입니다.
 
-💻 ClientManager
+### 💻 ClientManager  
 클라이언트가 접속할 때 초기화 작업을 수행하는 스크립트입니다.
 
-💬 ChatManager
+### 💬 ChatManager  
 실시간 채팅 시스템을 담당하는 스크립트입니다.
 
-🎨 SkinManager
+### 🎨 SkinManager  
 플레이어의 외형(스킨)을 설정 및 변경하는 스크립트입니다.
 
-🚗 VehicleManager
+### 🚗 VehicleManager  
 플레이어가 사용할 수 있는 탈것을 관리하는 스크립트입니다.
+
   
 
 ## ⏲️ 개발기간
