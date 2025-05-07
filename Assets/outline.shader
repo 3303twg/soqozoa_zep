@@ -69,9 +69,11 @@ Shader "Custom/SpriteOutline"
                 }
 
                 // 외곽선 표시 조건
-                if (alpha < 0.5 && outline > 0.5)
+                if (alpha < 0.1 && outline > 0.1)
                 {
-                    return _OutlineColor;
+                    fixed4 outColor = _OutlineColor;
+                    outColor.a = 1.0; // 불투명하게 설정
+                    return outColor;
                 }
 
                 return tex2D(_MainTex, i.uv);

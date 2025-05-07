@@ -42,7 +42,10 @@ public class Flappy_PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Rock"))
         {
-            gamemanager.GetComponent<Gamemanager>().score++;
+            if (isDie == false)
+            {
+                gamemanager.GetComponent<Gamemanager>().score++;
+            }
         }
 
     }
@@ -51,6 +54,7 @@ public class Flappy_PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Rock"))
         {
+            Time.timeScale = 0;
             isDie = true;
             gamemanager.GetComponent<Gamemanager>().save_data();
             gamemanager.GetComponent<Gamemanager>().gameover_UI.SetActive(true);

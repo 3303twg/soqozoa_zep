@@ -42,7 +42,7 @@ public class Rock : MonoBehaviour
     {
         if(collision.CompareTag("Trigger"))
         {
-            hole_pos = Random.RandomRange(-2f , 2f);
+            hole_pos = Random.RandomRange(-2.5f , 2.5f);
             transform.position = spawn_point.position;
             top_rock.position = new Vector3(top_rock.position.x, top_rock_pos_y + hole_pos, top_rock.position.z);
             bottom_rock.position = new Vector3(bottom_rock.position.x, bottom_rock_pos_y + hole_pos, bottom_rock.position.z);

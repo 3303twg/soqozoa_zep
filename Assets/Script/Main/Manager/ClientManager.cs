@@ -35,14 +35,16 @@ public class ClientManager : MonoBehaviour
         if (PhotonNetwork.InRoom == true)
         {
             spawn_player();
+            Invoke("Player_collector", 0.5f);
         }
 
         else
         {
             Invoke("spawn_player", 0.5f);
+            Invoke("Player_collector", 0.5f);
         }
-        
 
+        
 
     }
 
@@ -68,20 +70,26 @@ public class ClientManager : MonoBehaviour
         }
         //있든 없든 처음 씬에 도착했으니 초기화
         player.GetComponent<PlayerController>().Init_player();
+
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject obj in players)
+        {
+            obj.transform.SetParent(player_list.transform);
+        }
     }
 
-    void test()
+    public void Player_collector()
     {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
-        skinmanager.photon_view.RPC("RPC_Refresh_skin", RpcTarget.All);
+        foreach (GameObject obj in players)
+        {
+            obj.transform.SetParent(player_list.transform);
+        }
 
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {   
-
-        
-    }
 }

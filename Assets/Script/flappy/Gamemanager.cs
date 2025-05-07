@@ -9,6 +9,7 @@ using ExitGames.Client.Photon.StructWrapping;
 public class Gamemanager : MonoBehaviour
 {
     GameObject player_list;
+    GameObject player_info;
     public GameObject gameover_UI;
 
     public int score = 0;
@@ -20,6 +21,11 @@ public class Gamemanager : MonoBehaviour
 
 
     public string name;
+
+    private void Awake()
+    {
+        player_info = GameObject.Find("PlayerInfo");
+    }
     void Start()
     {
         Hashtable flappy = PhotonNetwork.CurrentRoom.CustomProperties;
@@ -27,14 +33,16 @@ public class Gamemanager : MonoBehaviour
         if (flappy.TryGetValue("score", out object record_score))
         {
             best_score = (int)record_score;
-            best_score_text.text = best_score.ToString();
+            
         }
         
         if (flappy.TryGetValue("name", out object nick_name))
         {
             name = nick_name as string;
-            best_name_text.text = name + " : ";
+            
         }
+
+        best_score_text.text = name + " : " + best_score.ToString();
     }
 
     // Update is called once per frame
@@ -48,6 +56,8 @@ public class Gamemanager : MonoBehaviour
     public void Exit_game()
     {
         //player_list.SetActive(true);
+        player_info.GetComponent<PlayerInfo>().isGame = false;
+        Time.timeScale = 1;
         SceneManager.LoadScene("Main");
     }
 

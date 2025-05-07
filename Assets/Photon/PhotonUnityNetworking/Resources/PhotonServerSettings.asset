@@ -58,6 +58,12 @@ MonoBehaviour:
   - RPC_Write_text
   - Destroy_chat_ballon
   - Write_text
+  - Refresh_vehicle
+  - RPC_Refresh_vehicle
+  - Change_isRiding
+  - Set_parent
+  - Flipx
+  - Flip
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

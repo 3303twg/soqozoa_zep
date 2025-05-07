@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.StandaloneInputModule;
 
 public class ChatManager : MonoBehaviour
 {
@@ -13,10 +14,14 @@ public class ChatManager : MonoBehaviour
     public Text chat_text;
     public GameObject player;
 
+    public bool chat_flag = false;
+
+    private Coroutine destroyCoroutine;
 
     void Start()
     {
-        
+        inputField.interactable = false;
+        inputField.onEndEdit.AddListener(RPC_Write_text);
     }
 
     public void Init_chat_manager()
@@ -27,14 +32,44 @@ public class ChatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputField.onEndEdit.AddListener(RPC_Write_text);
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            chat_flag = !chat_flag; // 엔터로 입력 모드 토글
+            inputField.interactable = chat_flag;
+
+            if (chat_flag)
+            {
+                player.GetComponent<PlayerController>().isChat = true;
+                inputField.ActivateInputField(); // 포커스 부여
+            }
+            else
+            {
+                if (inputField.text != "")
+                {
+                    RPC_Write_text(inputField.text);
+                    inputField.text = "";
+                }
+                inputField.DeactivateInputField(); // 포커스 해제
+                player.GetComponent<PlayerController>().isChat = false;
+            }
+        }
+        
     }
 
 
     void RPC_Write_text(string text)
     {
         player.GetComponent<PlayerController>().photon_view.RPC("Write_text", Photon.Pun.RpcTarget.All, text);
-        StartCoroutine(Destroy_chat_ballon());
+
+        // 기존 코루틴이 있다면 멈춤
+        if (destroyCoroutine != null)
+        {
+            StopCoroutine(destroyCoroutine);
+        }
+
+        // 새로 시작
+        destroyCoroutine = StartCoroutine(Destroy_chat_ballon());
     }
 
     IEnumerator Destroy_chat_ballon()

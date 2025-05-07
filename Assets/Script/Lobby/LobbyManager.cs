@@ -39,13 +39,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         text = text1;
     }
 
-    // Update is called once per frame
     public override void OnConnectedToMaster()
     {
-
-        
-        print("서버 접속 완료");
-        
         //로비 접속
         PhotonNetwork.JoinLobby();
     }
@@ -54,14 +49,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     //로비 접속 완료시
     public override void OnJoinedLobby()
     {
-        print("로비 접속 완료");
 
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Debug.Log("랜덤 룸 없음. 새 룸 생성 중...");
-
         // 랜덤 룸이 없다면 새로 생성
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 20; // 최대 인원 설정
@@ -79,16 +71,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     //룸 생성
     public override void OnCreatedRoom()
     {
-        Debug.Log("새로운 룸 생성됨");
+
     }
 
 
     //룸 입장완료
     public override void OnJoinedRoom()
     {
-        Debug.Log("룸에 입장 완료");
-
-
         PhotonNetwork.LoadLevel("Main");
     }
 
@@ -104,9 +93,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         //방이 하나밖에 없을예정이라 랜덤으로하긴했음
         //직접 선택하려면 이름 입력해야함
         PhotonNetwork.JoinRandomRoom();
-
-        
-
 
     }
 }

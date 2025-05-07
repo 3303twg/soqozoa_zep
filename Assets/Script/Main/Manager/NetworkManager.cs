@@ -10,10 +10,9 @@ public class NetworkManager : MonoBehaviour
 
 
     public PhotonView photon_view;
-
     public GameObject player;
     public GameObject player_list;
-
+    public GameObject player_info;
 
     //얘는 싱글톤으로 뺄 필요가 있지않을까 
     //미니게임중 난입에 대해서도 생각해야지
@@ -21,17 +20,8 @@ public class NetworkManager : MonoBehaviour
     {
         photon_view = GetComponent<PhotonView>();
         player_list = GameObject.Find("PlayerList");
+        player_info = GameObject.Find("PlayerInfo");
 
-    }
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     [PunRPC]
@@ -58,6 +48,14 @@ public class NetworkManager : MonoBehaviour
             obj.transform.SetParent(player_list.transform);
         }
 
-        player.GetComponent<PlayerController>().photon_view.RPC("Get_SkinManager", RpcTarget.All);
+        if (player_info.GetComponent<PlayerInfo>().isGame == true)
+        {
+            player.SetActive(false);
+        }
+
+        else
+        {
+            player.GetComponent<PlayerController>().photon_view.RPC("Get_SkinManager", RpcTarget.All);
+        }
     }
 }

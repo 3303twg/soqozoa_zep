@@ -630,6 +630,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nick_name: 
   skin_index: 0
+  vehicle_index: 0
+  isGame: 0
 --- !u!1 &952236587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,7 +1122,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
